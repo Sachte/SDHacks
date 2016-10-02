@@ -51,9 +51,9 @@
 
                 tootip.GetComponent<VRTK_ObjectTooltip>().displayText = name;
                 tootip.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
-                Vector3 temp = this.transform.position;
-                tootip.transform.position = new Vector3(0f, 1f, 0f) + temp;
 
+                tootip.transform.position = new Vector3(1.7f, 2.5f, -3.1f);
+              
                 tootip.GetComponent<VRTK_ObjectTooltip>().drawLineFrom = this.transform;
                 tootip.GetComponent<VRTK_ObjectTooltip>().drawLineTo = tootip.transform;
 
@@ -67,9 +67,9 @@
         public override void StopTouching(GameObject previousTouchingObject)
         {
             base.StopTouching(previousTouchingObject);
-
-            tootip.GetComponent<VRTK_ObjectTooltip>().enabled = false;
-
+            
+            Object.Destroy(tootip, 3f);
+    
             isDisplayed = false;
         }
 
